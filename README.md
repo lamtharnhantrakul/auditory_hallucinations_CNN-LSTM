@@ -9,7 +9,7 @@ Given a series of input images I<sub>1</sub>,I<sub>2</sub>,I<sub>3</sub>,...,I<s
 
 The project was inspired by the work "Visually Indicated Sounds" by [Owens et al](http://vis.csail.mit.edu). However, unlike Owens et al, which worked with <i>unpitched</i> sounds from Nature and everyday objects composed of mainly <i>filtered white noise and impulses</i>, this work focuses on <b>pitched</b> musical instruments, specifically the marimba, that are <b>spectrally pure</b>.
 
-<img src="assets/pipeline.jpg" width="324" height="324" />
+<img src="assets/pipeline.jpg" width="200" height="200" />
 
 <b>At the time of writing, the CNN-LSTM is able to overfit a small sequence, but is not yet able to generalize to the entire dataset.</b>
 
@@ -34,15 +34,18 @@ Like Owens et al, we use a "space-time" image consisting of 3 consecutive frames
 # Audio Feature
 For a more complete description, see the paper linked below. Briefly, to account for differences in the video and audio sampling rates (25fps vs 48000Hz or fps), we calculate the equivalent "window" in the audio domain for every 3 frames of concatenated space time image in the visual domain. We apply a Hamming window, artificially zero-pad the segment and take a Short Time Fourier Transform (STFT).
 
-<img src="assets/sync_audio_video.png" width="500" height="324" />
+<img src="assets/sync_audio_video.png" width="40" height="324" />
 
 Since the Marimba produces discrete, pitched notes, we can can map every frame of sound to a known note (essentially discretizing the frequency domain into 18 notes). At any time <i>t</i>, a single audio feature feature vector <b><i>s<sub>t</sub></i></b> is a R<sup>18</sup> vector. Each dimension of the vector contains the instantaneous amplitude of the frequency bin. A series of audio vectors thus captures how the amplitude of discrete frequency bins change over time. 
 
-<img src="assets/audio_feature.png" width="500" height="324" />
+<img src="assets/audio_feature.png" width="500" height="300" />
 
 Inspired by Owens et al paper, where the authors use both kNN and inverse synthesis over natural sounds, our audio feature also enables <i>both</i> nearest neighbour search and inverse synthesis of pitched marimba sounds. Briefly, the audio vector amplitudes can be interpolated and pointwise multiplied with 18 oscillators and summed via additive synthesis to reproduce the sound of the marimba!
 
 # Architectures
+<img src="assets/model_arch.png" width="500" height="400" />
+
+We adopt 
 
 # Results
 
