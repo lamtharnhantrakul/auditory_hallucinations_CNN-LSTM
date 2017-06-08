@@ -1,5 +1,7 @@
-# auditory-hallucinations
+# Deep Auditory Hallucinations
 Check out the demo video!
+
+
 
 # Overview
 This projects explores cross-modal learning from the visual domain to the audio domain in the context of musical instruments. A neural network is trained on pairs of image sequences of a marimba being struck and the resulting sonic output.
@@ -7,7 +9,7 @@ Given a series of input images I<sub>1</sub>,I<sub>2</sub>,I<sub>3</sub>,...,I<s
 
 The project was  inspired by the work "Visually Indicated Sounds" by Owens et al [1](http://vis.csail.mit.edu). However, unlike Owens et al, which worked with <i>unpitched</i> sounds from Nature and everyday objects composed of mainly <i>filtered white noise and impulses</i>, this work focuses on <b>pitched</b> musical instruments, specifically the marimba, that are <b>spectrally pure</b>.
 
-At the time of writing, the CNN-LSTM is able to overfit a small sequence, but is not yet able to generalize to the entire dataset. 
+<b>At the time of writing, the CNN-LSTM is able to overfit a small sequence, but is not yet able to generalize to the entire dataset.</b>
 
 # GT Marimba Dataset
 With a plethora of musical instruments to pick from, we choose the marimba for a number of compelling reasons:
@@ -20,16 +22,23 @@ We use a stereo XY condensor microphone and an array of video cameras to capture
 
 We also provide an extended dataset of only top angle footage with small offsets. This was easiest angle to train the neural network on. This amounts to approximately 3 hours of footage or 500,000 frames. 
 
-# Image Features
-A "space-time" image is produced 
+# Image Feature
+Like Owens et al, we use a "space-time" image consisting of 3 consecutive frames that have been grayscaled. An image vector I<sub>n</sub> is like a single image where each RGB channel is a greyscale image. 
 
-# Audio Features
-For a complete description, see the paper linked below. Briefly, for every CNN window
+# Audio Feature
+For a more complete description, see the paper linked below. Briefly, to account for differences in the video and audio sampling rates (25fps vs 48000Hz or fps), we calculate the equivalent "window" in the audio domain for every 3 frames of concatenated space time image in the visual domain. We apply a Hamming window, artificially zero-pad the segment and take a Short Time Fourier Transform (STFT).
 
+Since the Marimba produces discrete, pitched notes, we can can map every frame of sound to a known note (essentially discretizing the frequency domain into 18 notes). At any time <i>t</i>, a single audio feature feature vector <b><i>s<sub>t</sub></i></b> is a R<sup>18</sup> vector. Each dimension of the vector contains the instantaneous amplitude of the frequency bin. A series of audio vectors thus captures how the amplitude of discrete frequency bins change over time. 
+
+Inspired by Owens et al paper, where the authors use both kNN and inverse synthesis over natural sounds, our audio feature also enables <i>both</i> nearest neighbour search and inverse synthesis of pitched marimba sounds. Briefly, the audio vector amplitudes can be interpolated and pointwise multiplied with 18 oscillators and summed via additive synthesis to reproduce the sound of the marimba!
 
 # Architectures
 
 # Results
+
+# Dependancies
+
+# Usage
 
 # Credits
 * Deep Learning: Lamtharn (Hanoi) Hantrakul 
