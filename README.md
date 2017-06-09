@@ -20,14 +20,14 @@ With a plethora of musical instruments to pick from, we choose the marimba for a
 * Timbre information is encoded in the texture and color of the bars (wood vs metal texture)
 * The marimba is a spectrally pure instrument, dominated by a couple of sinusoids and very few overtones.
 
-<img src="assets/dataset.png" width="500" height="550" />
+<img src="assets/dataset.png" width="500" height="320" />
 
 We use a stereo XY condensor microphone and an array of video cameras to capture a marimba being played. This provides approximately 6 hours of footage or roughly 850,000 frames. In every shot, we choose angles that maintain the full marimba keys to preserve relative spatial information.
 
 We also provide an extended dataset of only top angle footage with small offsets. This was the easiest angle to train the neural network on. This amounts to approximately 3 hours of footage or 500,000 frames. 
 
 # Image Feature
-<img src="assets/space_time.png" width="200" height="250" />
+<img src="assets/space_time.png" width="200" height="500" />
 
 Like Owens et al, we use a "space-time" image consisting of 3 consecutive frames that have been grayscaled. Think of an image vector I<sub>n</sub> is like a single image where each RGB channel is a greyscale image. 
 
