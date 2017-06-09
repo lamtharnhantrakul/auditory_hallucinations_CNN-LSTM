@@ -34,7 +34,7 @@ Like Owens et al, we use a "space-time" image consisting of 3 consecutive frames
 # Audio Feature
 For a more complete description, see the paper linked below. Briefly, to account for differences in the video and audio sampling rates (25fps vs 48000Hz or fps), we calculate the equivalent "window" in the audio domain for every 3 frames of concatenated space time image in the visual domain. We apply a Hamming window, artificially zero-pad the segment and take a Short Time Fourier Transform (STFT).
 
-<img src="assets/sync_audio_video.png" width="600" height="80" />
+<img src="assets/sync_audio_video.png" width="300" height="60" />
 
 Since the Marimba produces discrete, pitched notes, we can can map every frame of sound to a known note (essentially discretizing the frequency domain into 18 notes). At any time <i>t</i>, a single audio feature feature vector <b><i>s<sub>t</sub></i></b> is a R<sup>18</sup> vector. Each dimension of the vector contains the instantaneous amplitude of the frequency bin. A series of audio vectors thus captures how the amplitude of discrete frequency bins change over time. 
 
