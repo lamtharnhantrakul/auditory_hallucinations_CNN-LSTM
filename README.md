@@ -4,14 +4,14 @@ Check out the demo video!
 [![Video link](https://github.com/lamtharnhantrakul/auditory_hallucinations_CNN-LSTM/blob/master/assets/youtube.png)](https://www.youtube.com/watch?v=23lJOX4Ioo4&feature=youtu.be)
 
 # Overview
-<b>At the time of writing, the CNN-LSTM is able to overfit a small sequence, but is not yet able to generalize to the entire dataset.</b>
-
 This projects explores cross-modal learning from the visual domain to the audio domain in the context of musical instruments. A neural network is trained on pairs of image sequences of a marimba being struck and the resulting sonic output.
 Given a series of input images I<sub>1</sub>,I<sub>2</sub>,I<sub>3</sub>,...,I<sub>n</sub>, the neural network is tasked with producing the corresponding audio feature s<sub>1</sub>,s<sub>2</sub>,s<sub>3</sub>,...,s<sub>n</sub> where st ∈ R<sup>18</sup>. We initially approached this as a regression problem using an RNN that takes in CNN features as input.
 
 The project was inspired by the work "Visually Indicated Sounds" by [Owens et al](http://vis.csail.mit.edu). However, unlike Owens et al, which worked with <i>unpitched</i> sounds from Nature and everyday objects composed of mainly <i>filtered white noise and impulses</i>, this work focuses on <b>pitched</b> musical instruments, specifically the marimba, that are <b>spectrally pure</b>.
 
 <img src="assets/pipeline.jpg" width="200" height="200" />
+
+<b>*At the time of writing, the CNN-LSTM is able to overfit a small sequence, but is not yet able to generalize to the entire dataset.*</b>
 
 # GT Marimba Dataset
 With a plethora of musical instruments to pick from, we choose the marimba for a number of compelling reasons:
