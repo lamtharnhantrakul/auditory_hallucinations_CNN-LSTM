@@ -43,7 +43,7 @@ Since the Marimba produces discrete, pitched notes, we can can map every frame o
 Inspired by Owens et al, where the authors use both kNN and inverse synthesis to search and produce sounds, our audio feature also enables <i>both</i> nearest neighbour search and inverse synthesis of pitched marimba sounds. Briefly, the audio vector amplitudes can be interpolated and pointwise multiplied with 18 oscillators and summed via Additive Synthesis to reproduce the sound of the marimba!
 
 # Architectures
-![alt-text]("assets/model_arch.png")
+![Alt text]("assets/model_arch.png")
 
 We adopt 3 models in this work:
 * An FC-LSTM closely modeled after Owens et al.
@@ -51,15 +51,15 @@ We adopt 3 models in this work:
 * A Convolutional-LSTM similar to [Shi et al.](https://arxiv.org/abs/1506.04214)
 
 # Results
-<b>FC-LSTM</b>
-<img src="assets/fclstm.png" width="300" height="500" />
+<b>FC-LSTM</b><br>
+<img src="assets/fclstm.png" width="400" height="500" />
 When using FC-LSTM to overfit a small sequence:
 * The network produces the correct transients, but outputs every note at the same time. 
 * The network outputs the statistical distribution of notes in the training data (we tended to hit lower notes more often than higer ones since they resonated longer)
 * This is due to the use of a pre-trained network like AlexNet or VGG19. The pooling layers cause the network to be spatially invariant and output very similar CNN codes despite the mallet being in different places (because VGG19 still thinks it is marimba). In the case of Owens et al, the large variety in background and texture would be picked up by the pre-trained network.
 
-<b>CNN-LSTM</b>
-<img src="assets/cnnlstm.png" width="300" height="500" />
+<b>CNN-LSTM</b><br>
+<img src="assets/cnnlstm.png" width="400" height="500" />
 When usinga CNN-LSTM to overfit a small sequence:
 * The network is able to reconstruct the audio feature output with very good accuracy.
 * The design pattern used in the CNN is a scaled-up version of the CNN used in the Atari-playing DQN. It consists of CNN layers that increase in filter number, decrease in filter size and decrease in filter stride. The authors reasoned that such a design pattern enables the CNN to be sensitive to the location of small details (like small enemy targets, in the case of Atari).
