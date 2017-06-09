@@ -43,7 +43,7 @@ Since the Marimba produces discrete, pitched notes, we can can map every frame o
 Inspired by Owens et al, where the authors use both kNN and inverse synthesis to search and produce sounds, our audio feature also enables <i>both</i> nearest neighbour search and inverse synthesis of pitched marimba sounds. Briefly, the audio vector amplitudes can be interpolated and pointwise multiplied with 18 oscillators and summed via Additive Synthesis to reproduce the sound of the marimba!
 
 # Architectures
-![Alt text]("assets/model_arch.png")
+![Alt text](assets/model_arch.png)
 
 We adopt 3 models in this work:
 * An FC-LSTM closely modeled after Owens et al.
