@@ -20,7 +20,7 @@ With a plethora of musical instruments to pick from, we choose the marimba for a
 * Timbre information is encoded in the texture and color of the bars (wood vs metal texture)
 * The marimba is a spectrally pure instrument, dominated by a couple of sinusoids and very few overtones.
 
-<img src="assets/dataset.png" width="500" height="324" />
+<img src="assets/dataset.png" width="500" height="550" />
 
 We use a stereo XY condensor microphone and an array of video cameras to capture a marimba being played. This provides approximately 6 hours of footage or roughly 850,000 frames. In every shot, we choose angles that maintain the full marimba keys to preserve relative spatial information.
 
