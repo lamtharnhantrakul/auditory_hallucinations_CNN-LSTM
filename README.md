@@ -27,7 +27,7 @@ We use a stereo XY condensor microphone and an array of video cameras to capture
 We also provide an extended dataset of only top angle footage with small offsets. This was the easiest angle to train the neural network on. This amounts to approximately 3 hours of footage or 500,000 frames. 
 
 # Image Feature
-<img src="assets/space_time.png" width="200" height="500" />
+<img src="assets/space_time.png" width="500" height="300" />
 
 Like Owens et al, we use a "space-time" image consisting of 3 consecutive frames that have been grayscaled. Think of an image vector I<sub>n</sub> is like a single image where each RGB channel is a greyscale image. 
 
